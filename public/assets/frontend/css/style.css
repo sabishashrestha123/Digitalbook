@@ -1,0 +1,131 @@
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.login-container h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+.form-control {
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+.btn-primary {
+    background-color: #ff7e5f;
+    border-color: #ff7e5f;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    width: 100%;
+}
+.btn-primary:hover {
+    background-color: #feb47b;
+    border-color: #feb47b;
+}
+.text-center a {
+    color: #ff7e5f;
+    text-decoration: none;
+}
+.text-center a:hover {
+    text-decoration: underline;
+}
+
+
+.testimonial-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+.testimonial-section {
+    padding: 50px 0;
+}
+.testimonial-name {
+    font-weight: bold;
+}
+.testimonial-feedback {
+    font-style: italic;
+    color: #555;
+}
+
+
+.form-container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.form-container h2 {
+    margin-bottom: 30px;
+}
+.btn-primary {
+    width: 100%;
+}
+.testimonial-carousel {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+  }
+
+  /* Styling the testimonial box with a border */
+  .testimonial {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .testimonial:hover {
+    transform: scale(1.05); /* Slight zoom effect on hover */
+  }
+
+  .testimonial img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+
+  .testimonial h5 {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .testimonial p {
+    font-style: italic;
+    color: #555;
+  }
+
+  .carousel-item {
+    text-align: center;
+  }
+
+  /* Optional: Styling for the carousel controls */
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: #333; /* Darken the carousel arrows */
+  }
+
+  /* Adding some space to the section */
+  h2 {
+    color: #333;
+    margin-bottom: 40px;
+  }
+
