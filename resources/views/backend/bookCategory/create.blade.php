@@ -14,7 +14,6 @@
             </div>
 
             <div class="table_section padding_infor_info">
-                
                 <div class="container">
                     <!-- Form for adding a new category -->
                     <form action="{{ route('admin.book-categories.store') }}" method="POST">
