@@ -30,7 +30,16 @@
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>
-                                    <td>{{ $user->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                    <td>
+                                        <a href="{{ route('admin.admin.student-register.updateStatus', $user) }}">
+                                            @if ($user->status == 1)
+                                                <i class="btn btn-sm btn-toggle btn-success">On</i>
+                                            @else
+                                                <i class="btn btn-sm btn-toggle btn-danger">Off</i>
+                                            @endif
+                                        </a>
+                                    </td>
+
                                     <td>
 
 

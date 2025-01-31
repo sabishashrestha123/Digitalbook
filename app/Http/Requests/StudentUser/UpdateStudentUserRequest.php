@@ -3,6 +3,7 @@
 namespace App\Http\Requests\StudentUser;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class UpdateStudentUserRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateStudentUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,11 @@ class UpdateStudentUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'nullable|string|max:255',
+            'email' => 'nullavle|email|unique:users,email',
+            'password' => ['nullable','confirmed',Password::min(5)->letters()],
+            'Symbol_no' => 'nullable|string|max:255',
+            'status' => ['nullable','boolean'],
         ];
     }
 }

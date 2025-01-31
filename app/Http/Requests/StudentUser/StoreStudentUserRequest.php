@@ -28,7 +28,6 @@ class StoreStudentUserRequest extends FormRequest
             'password' => ['required','confirmed',Password::min(5)->letters()],
             'Symbol_no' => 'required|string|max:255',
             'status' => ['nullable','boolean'],
-
         ];
     }
 }

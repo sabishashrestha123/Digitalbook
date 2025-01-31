@@ -22,8 +22,13 @@ class AuthController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-        // Attempt to log in
         if (Auth::attempt($credentials, $request->has('remember'))) {
+
+            if(Auth::user()->role == 'student'){
+                toast('Your are logged in');
+                return to_route('front.index');
+            }
+
             toast('Logged in successfully.', 'success');
             return redirect()->route('admin.index');
         }
@@ -36,9 +41,13 @@ class AuthController extends Controller
 
     public function logout()
     {
+        $role = Auth::user()->role ?? null;
         Auth::logout();
         toast('Logged out successfully.', 'success');
-        return redirect()->route('admin.loginpage');
+        if ($role == 'student') {
+            return redirect()->route('front.index');
+        }
+        return redirect()->route('loginpage');
     }
 
 }

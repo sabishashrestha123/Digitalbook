@@ -14,3 +14,5 @@ Route::resource('book-categories', BookCategoryController::class);
 Route::resource('books', BookController::class);
 Route::resource('book-issues', BookIssueController::class);
 Route::resource('student-register',StudentUserCcontroller::class);
+Route::get('/admin/student-register/{id}/update-status', [StudentUserCcontroller::class, 'updateStatus'])->name('admin.student-register.updateStatus');
+

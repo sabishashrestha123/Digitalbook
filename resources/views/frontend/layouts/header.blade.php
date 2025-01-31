@@ -34,19 +34,32 @@
           </li>
 
 
+          @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              LOGIN
+                <i class="bi bi-person-circle"></i> <!-- Add an icon for user -->
+                <span>{{ Auth::user()->name }}👋</span> <!-- User's name -->
             </a>
-            <ul class="dropdown-menu">
-
-              <li><a class="dropdown-item" href="{{route('studentLogin')}}">STUDENT LOGIN</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{route('adminLogin')}}">TEACHER LOGIN</a></li>
-              <li><hr class="dropdown-divider"></li>
-
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg">
+                <li><a class="dropdown-item" href="{{ route('logout') }}">
+                    <i class="bi bi-box-arrow-right"></i> <!-- Add a logout icon -->
+                    Logout
+                </a></li>
             </ul>
+        </li>
+          @else
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  LOGIN
+              </a>
+              <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{{ route('studentLogin') }}">STUDENT LOGIN</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="{{ route('adminLogin') }}">TEACHER LOGIN</a></li>
+                  <li><hr class="dropdown-divider"></li>
+              </ul>
           </li>
+          @endauth
 
         </ul>
         <form class="d-flex" role="search">

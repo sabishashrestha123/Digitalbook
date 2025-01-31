@@ -129,3 +129,39 @@
     margin-bottom: 40px;
   }
 
+
+
+
+  /* Make the user dropdown look more stylish */
+.nav-item.dropdown .dropdown-menu {
+    background-color: #f8f9fa; /* Light background */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 0; /* Padding to create space inside the dropdown */
+}
+
+.nav-item.dropdown .dropdown-item {
+    font-size: 14px;
+    padding: 10px 20px;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-item.dropdown .dropdown-item:hover {
+    background-color: #007bff; /* Blue hover color */
+    color: white; /* White text on hover */
+}
+
+.nav-item.dropdown .dropdown-item i {
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.nav-link.dropdown-toggle {
+    font-weight: bold;
+    color: #495057;
+}
+
+.nav-link.dropdown-toggle:hover {
+    color: #007bff; /* Change color on hover */
+}
+
+

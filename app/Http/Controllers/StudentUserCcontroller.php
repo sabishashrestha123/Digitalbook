@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StudentUser\StoreStudentUserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class StudentUserCcontroller extends Controller
@@ -31,7 +32,7 @@ class StudentUserCcontroller extends Controller
         return to_route('studentLogin');
     }
 
-   
+
     public function show(string $id)
     {
         //
@@ -54,4 +55,13 @@ class StudentUserCcontroller extends Controller
         toast('User deleted successfully','success');
         return back();
     }
+    public function updateStatus(User $user)
+    {
+        $user->update([
+            'status' => !$user->status
+        ]);
+        toast('Updated Successfully', 'success');
+        return back();
+    }
+
 }
