@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,6 +14,12 @@ Route::get('feedback',[FrontendController::class, 'feedback'])->name('feedback')
 Route::get('librarian',[FrontendController::class, 'librarian'])->name('librarian');
 Route::get('bca',[FrontendController::class, 'bca'])->name('bca');
 Route::get('back',[FrontendController::class, 'back'])->name('back');
+
+
+
+Route::get('login',[AuthController::class,'loginpage'])->name('loginpage');
+Route::post('login',[AuthController::class,'login'])->name('login');
+Route::get('logout',[AuthController::class,'logout'])->name('logout');
 
 
 

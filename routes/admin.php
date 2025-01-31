@@ -9,9 +9,7 @@ use App\Http\Controllers\Admin\StudentController;
 use App\Http\Controllers\StudentUserCcontroller;
 
 Route::get('dashboard',[DashboardController::class,'index'])->name('index');
-Route::get('login',[AuthController::class,'loginpage'])->name('loginpage');
-Route::post('login',[AuthController::class,'login'])->name('login');
-Route::get('logout',[AuthController::class,'logout'])->name('logout');
+
 Route::resource('book-categories', BookCategoryController::class);
 Route::resource('books', BookController::class);
 Route::resource('book-issues', BookIssueController::class);

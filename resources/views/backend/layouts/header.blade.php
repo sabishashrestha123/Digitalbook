@@ -8,9 +8,9 @@
 
                 <ul class="user_profile_dd">
                    <li>
-                      <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{ asset('assets/logo.jpg') }} " alt="#" /><span class="name_user">{{ Auth::user()?->name ?? ''}}</span></a>
+                      <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="{{ asset('assets/logo.jpg') }} " alt="#" /><span class="name_user">{{ auth()->user()->name}}</span></a>
                       <div class="dropdown-menu">
-                         <a class="dropdown-item" href="{{ route('admin.logout') }}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                         <a class="dropdown-item" href="{{ route('logout') }}"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                       </div>
                    </li>
                 </ul>
