@@ -31,6 +31,7 @@ class StoreBookRequest extends FormRequest
             'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'file' => 'required|mimes:pdf|max:2048',
             'book_category_id' => ['required',Rule::exists('book_categories','id')],
+            'semester_id' => ['required',Rule::exists('semesters','id')],
             'status' => 'nullable|boolean',
         ];
     }

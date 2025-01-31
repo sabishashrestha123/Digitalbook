@@ -26,17 +26,22 @@
                  <a href="{{ route('admin.index') }}" aria-expanded="false"><i class="fa fa-dashboard yellow_color"></i>
                      <span>Dashboard</span></a>
              </li>
-            @if (Auth::user()->role == 'admin')
-            <li>
-                <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
-                        class="fa fa-book purple_color"></i> <span>Manage Books</span></a>
-                <ul class="collapse list-unstyled" id="element">
-                    <li><a href="{{ route('admin.book-categories.index') }}">> <span>Book Category</span></a></li>
-                    <li><a href="{{ route('admin.books.index') }}">> <span>Books</span></a></li>
+             <li><a href="{{ route('admin.slider.index') }}"><i class="fa fa-image blue_color"></i>
+                     <span>Slider</span></a></li>
+             </li>
 
-                </ul>
-            </li>
-            @endif
+             @if (Auth::user()->role == 'admin')
+                 <li>
+                     <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
+                             class="fa fa-book purple_color"></i> <span>Manage Books</span></a>
+                     <ul class="collapse list-unstyled" id="element">
+                         <li><a href="{{ route('admin.book-categories.index') }}">> <span>Book Category</span></a></li>
+                         <li><a href="{{ route('admin.semester.index') }}">> <span>Semester</span></a></li>
+                         <li><a href="{{ route('admin.books.index') }}">> <span>Books</span></a></li>
+
+                     </ul>
+                 </li>
+             @endif
 
              <li><a href="{{ route('admin.book-issues.index') }}"><i class="fa fa-paper-plane orange_color"></i>
                      <span>Book Issue Request</span></a></li>

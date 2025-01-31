@@ -16,14 +16,14 @@
             <div class="table_section padding_infor_info">
                 <div class="container">
                     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
                     <form action="{{ route('admin.books.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
@@ -31,7 +31,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="category_name">Book Title</label>
-                                    <input type="text" name="title" id="category_name" class="form-control" placeholder="Enter Book Title">
+                                    <input type="text" name="title" id="category_name" class="form-control"
+                                        placeholder="Enter Book Title">
                                 </div>
                                 @error('title')
                                     <span class="text-danger">{{ $message }}</span>
@@ -40,7 +41,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="category_name">Author</label>
-                                    <input type="text" name="author" id="category_name" class="form-control" placeholder="Enter Author">
+                                    <input type="text" name="author" id="category_name" class="form-control"
+                                        placeholder="Enter Author">
                                 </div>
                                 @error('author')
                                     <span class="text-danger">{{ $message }}</span>
@@ -49,7 +51,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="category_name">Edition</label>
-                                    <input type="number" name="edition" id="category_name" class="form-control" placeholder="Enter Edition">
+                                    <input type="number" name="edition" id="category_name" class="form-control"
+                                        placeholder="Enter Edition">
                                 </div>
                                 @error('edition')
                                     <span class="text-danger">{{ $message }}</span>
@@ -58,7 +61,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="category_name">ISBN</label>
-                                    <input type="number" name="isbn" id="category_name" class="form-control" placeholder="Enter ISBN">
+                                    <input type="number" name="isbn" id="category_name" class="form-control"
+                                        placeholder="Enter ISBN">
                                 </div>
                                 @error('isbn')
                                     <span class="text-danger">{{ $message }}</span>
@@ -69,7 +73,7 @@
 
                                     <label for="status">Book Category</label>
                                     <select name="book_category_id" id="status" class="form-control" required>
-                                        <option  disabled selected>select category</option>
+                                        <option disabled selected>select category</option>
                                         @foreach ($bookCategories as $bookCategory)
                                             <option value="{{ $bookCategory->id }}">{{ $bookCategory->name }}</option>
                                         @endforeach
@@ -78,13 +82,29 @@
 
                                 </div>
                                 @error('category_id')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
 
+                                    <label for="status">Semeter</label>
+                                    <select name="semester_id" id="status" class="form-control" required>
+                                        <option disabled selected>select semester</option>
+                                        @foreach ($semesters as $semester)
+                                            <option value="{{ $semester->id }}">{{ $semester->title }}</option>
+                                        @endforeach
+
+                                    </select>
+
+                                </div>
+                                @error('semester_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
 
 
-                              <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="form-group">
 
                                     <label for="status">Status</label>
@@ -98,7 +118,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="category_name">cover img</label>
-                                    <input type="file" name="cover_image" id="category_name" class="form-control" placeholder="Enter cover image">
+                                    <input type="file" name="cover_image" id="category_name" class="form-control"
+                                        placeholder="Enter cover image">
                                 </div>
                                 @error('cover_image')
                                     <span class="text-danger">{{ $message }}</span>
@@ -107,7 +128,8 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="category_name">file</label>
-                                    <input type="file" name="file" id="category_name" class="form-control" placeholder="Enter file">
+                                    <input type="file" name="file" id="category_name" class="form-control"
+                                        placeholder="Enter file">
                                 </div>
                                 @error('file')
                                     <span class="text-danger">{{ $message }}</span>

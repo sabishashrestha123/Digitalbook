@@ -73,15 +73,15 @@
                                         <option disabled selected>Select Category</option>
                                         @foreach ($bookCategories as $bookCategory)
                                             <option value="{{ $bookCategory->id }}"
-                                                {{ old('book_category_id', $book->book_category_id) == $bookCategory->id ? 'selected' : '' }}>
+                                                {{ $semester->book_category_id == $bookCategory->id ? 'selected' : '' }}>
                                                 {{ $bookCategory->name }}
                                             </option>
                                         @endforeach
                                     </select>
+                                    @error('book_category_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
-                                @error('book_category_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
                             </div>
 
                             <!-- Cover Image -->

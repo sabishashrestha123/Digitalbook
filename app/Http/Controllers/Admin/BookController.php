@@ -7,6 +7,7 @@ use App\Http\Requests\Book\StoreBookRequest;
 use App\Http\Requests\Book\UpdateBookRequest;
 use App\Models\Book;
 use App\Models\BookCategory;
+use App\Models\Semester;
 
 class BookController extends Controller
 {
@@ -25,7 +26,8 @@ class BookController extends Controller
     public function create()
     {
         $bookCategories = BookCategory::latest()->get();
-     return view('backend.book.create', compact('bookCategories'));
+        $semesters = Semester::latest()->get();
+     return view('backend.book.create', compact('bookCategories','semesters'));
     }
     /**
      * Store a newly created resource in storage.
@@ -49,7 +51,8 @@ class BookController extends Controller
     {
         // dd($book);
         $bookCategories = BookCategory::latest()->get();
-        return view('backend.book.edit', compact('book', 'bookCategories'));
+        $semesters = Semester::latest()->get();
+        return view('backend.book.edit', compact('book', 'bookCategories'.'semesters'));
     }
 
     /**

@@ -17,12 +17,17 @@ class Book extends Model
         'cover_image',
         'file',
         'book_category_id',
+        'semester_id',
         'status'
     ];
 
     public function bookCategory(): BelongsTo
     {
         return $this->belongsTo(BookCategory::class);
+    }
+    public function semester(): BelongsTo
+    {
+        return $this->belongsTo(Semester::class);
     }
 
     public function setFileAttribute($value)

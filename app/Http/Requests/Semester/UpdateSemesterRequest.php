@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Requests\Book;
+namespace App\Http\Requests\Semester;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UpdateBookRequest extends FormRequest
+class UpdateSemesterRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,14 +23,8 @@ class UpdateBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'author' => 'required|string|max:255',
-            'edition' => 'required|string|max:255',
-            'isbn' => 'required|string|max:255',
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'file' => 'required|mimes:pdf|max:2048',
+            'title' =>['required', 'string'],
             'book_category_id' => ['required',Rule::exists('book_categories','id')],
-            'semester_id' => ['required',Rule::exists('semesters','id')],
             'status' => 'nullable|boolean',
         ];
     }

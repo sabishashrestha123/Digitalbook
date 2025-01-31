@@ -37,16 +37,12 @@ class BookCategoryController extends Controller
         BookCategory::create($request->validated());
         toast('Category added successfully!', 'success');
         return redirect()->route('admin.book-categories.index');
-
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-
-    }
+    public function show(string $id) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -81,4 +77,12 @@ class BookCategoryController extends Controller
         $books = $bookCategory->books;
         return view('backend.book.view', compact('bookCategory', 'books'));
     }
+    public function updateStatus(BookCategory $bookCategory)
+     {
+        $bookCategory->update([
+            'status' => !$bookCategory->status
+        ]);
+        toast('Updated Successfully', 'success');
+        return back();
+     }
 }
