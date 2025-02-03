@@ -9,7 +9,7 @@
          </div>
          <div class="row">
             <div class="col-md-6">
-               <a href="{{ route('admin.book-barrow.create') }}" class="btn btn-primary">Add Book Issue</a>
+               <a href="{{ route('admin.book-borrow.create') }}" class="btn btn-primary">Add Book Issue</a>
             </div>
          </div>
       </div>
@@ -63,12 +63,34 @@
                             }
                         @endphp
                      </td>
+                     {{-- <td>
+                        <a href="{{ route('admin.book-borrow.updateStatus', $bookBorrow) }}">
+                            @if ($bookBorrow->is_returned == 0)
+                                <i class="btn btn-sm btn-toggle btn-success">Book Issued</i>
+                            @else
+                                <i class="btn btn-sm btn-toggle btn-danger">Book returned</i>
+                            @endif
+                        </a>
+                     </td> --}}
+                     <td>
+                        @if ($bookBorrow->is_returned)
+                            @if ($bookBorrow->late_fee > 0)
+                                Paid Late Fee: Rs. {{ $bookBorrow->late_fee }}
+                            @else
+                                Returned on time
+                            @endif
+                        @else
+                            <a href="{{ route('admin.book-borrow.updateStatus', $bookBorrow) }}">
+                                <i class="btn btn-sm btn-toggle btn-success">Mark as Returned</i>
+                            </a>
+                        @endif
+                    </td>
 
 
 
                      <td>
-                        <a href="{{ route('admin.book-barrow.edit', $bookBorrow) }}" class="btn btn-primary">Edit</a>
-                        <a href="{{ route('admin.book-barrow.destroy', $bookBorrow  ) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</a>
+                        <a href="{{ route('admin.book-borrow.edit', $bookBorrow) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ route('admin.book-borrow.destroy', $bookBorrow  ) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this book?')">Delete</a>
                      </td>
                   </tr>
                </tbody>

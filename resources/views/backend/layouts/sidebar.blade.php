@@ -43,7 +43,7 @@
                  </li>
              @endif
 
-             <li><a href="{{ route('admin.book-barrow.index') }}"><i class="fa fa-paper-plane orange_color"></i>
+             <li><a href="{{ route('admin.book-borrow.index') }}"><i class="fa fa-paper-plane orange_color"></i>
                      <span>Book Issue Request</span></a></li>
              </li>
 

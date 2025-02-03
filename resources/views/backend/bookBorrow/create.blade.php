@@ -8,14 +8,14 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="{{ route('admin.book-barrow.index') }}" class="btn btn-secondary">Back to Book Issue</a>
+                        <a href="{{ route('admin.book-borrow.index') }}" class="btn btn-secondary">Back to Book Issue</a>
                     </div>
                 </div>
             </div>
 
             <div class="table_section padding_infor_info">
                 <div class="container">
-                    <form action="{{ route('admin.book-barrow.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.book-borrow.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">

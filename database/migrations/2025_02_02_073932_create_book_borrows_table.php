@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('borrow_date');
             $table->string('return_date')->nullable();
             $table->boolean('is_returned')->default(false);
-            $table->string('late_fee')->nullable();
+            $table->decimal('late_fee', 8, 2)->default(0);
             $table->timestamps();
         });
     }
