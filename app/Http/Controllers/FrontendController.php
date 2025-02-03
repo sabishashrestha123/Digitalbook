@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookCategory;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
@@ -10,8 +11,8 @@ class FrontendController extends Controller
     public function index()
     {
 
-        $sliders=Slider::where('status', 1)->latest()->get();
-        return view('frontend.index',compact('sliders'));
+        $sliders = Slider::where('status', 1)->latest()->get();
+        return view('frontend.index', compact('sliders'));
     }
     public function studentLogin()
     {
@@ -47,4 +48,9 @@ class FrontendController extends Controller
         return view('backend.index');
     }
 
+    public function showByCategory(BookCategory $bookCategory)
+    {
+        $bookCategory->load(['semesters.books']);
+        return view('frontend.bookDetail', compact('bookCategory'));
+    }
 }
