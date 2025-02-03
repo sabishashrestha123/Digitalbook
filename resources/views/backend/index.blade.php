@@ -18,7 +18,7 @@
              </div>
              <div class="counter_no">
                 <div>
-                   <p class="total_no">0</p>
+                   <p class="total_no">{{ $book }}</p>
                    <p class="head_couter">Total Books</p>
                 </div>
              </div>
@@ -73,12 +73,12 @@
         <div class="full counter_section margin_bottom_30">
            <div class="couter_icon">
               <div>
-                 <i class="fa fa-book green_color"></i>
+                 <i class="fa fa-user green_color"></i>
               </div>
            </div>
            <div class="counter_no">
               <div>
-                 <p class="total_no">0</p>
+                 <p class="total_no">{{ $student }}</p>
                  <p class="head_couter">Total Students</p>
               </div>
            </div>

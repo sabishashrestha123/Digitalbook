@@ -2,44 +2,32 @@
 @section('content')
     <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
+            @foreach ($sliders as $index => $slider)
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ $index }}"
+                    class="{{ $index == 0 ? 'active' : '' }}" aria-label="Slide {{ $index + 1 }}"></button>
+            @endforeach
         </div>
+
         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="https://www.pixel-studios.com/blog/wp-content/uploads/2018/12/012-1200x600.jpg"
-                    class="d-block w-100" height="600" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Welcome to our Nepalgunj Campus library management system.</p>
+            @foreach ($sliders as $index => $slider)
+                <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                    <img src="{{ asset($slider->image) }}" class="d-block w-100" height="600"
+                        alt="Slide {{ $index + 1 }}">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>{{ $slider->title }}</h5>
+                        <p>{{ $slider->description }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://www.pixel-studios.com/blog/wp-content/uploads/2018/12/012-1200x600.jpg"
-                    class="d-block w-100" height="600" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Here, we have CSIT and BCA books.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="https://www.pixel-studios.com/blog/wp-content/uploads/2018/12/012-1200x600.jpg"
-                    class="d-block w-100" height="600" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Thank you for visiting our website.</p>
-                </div>
-            </div>
+            @endforeach
         </div>
-        <button class="carousel-control-prev" style="top:20rem;" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+
+        <button class="carousel-control-prev" style="top:20rem;" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" style="top:20rem;" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <button class="carousel-control-next" style="top:20rem;" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -68,7 +56,8 @@
                             <div class="col-md-4">
                                 <div class="testimonial-card text-center">
                                     <div class="avatar-container">
-                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D" alt="Ram Bahadur BC" class="avatar">
+                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+                                            alt="Ram Bahadur BC" class="avatar">
                                     </div>
                                     <div class="rating">
                                         <i class="fas fa-star"></i>
@@ -90,7 +79,8 @@
                             <div class="col-md-4">
                                 <div class="testimonial-card text-center">
                                     <div class="avatar-container">
-                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D" alt="Jane Smith" class="avatar">
+                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+                                            alt="Jane Smith" class="avatar">
                                     </div>
                                     <div class="rating">
                                         <i class="fas fa-star"></i>
@@ -112,7 +102,8 @@
                             <div class="col-md-4">
                                 <div class="testimonial-card text-center">
                                     <div class="avatar-container">
-                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D" alt="Mike Johnson" class="avatar">
+                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+                                            alt="Mike Johnson" class="avatar">
                                     </div>
                                     <div class="rating">
                                         <i class="fas fa-star"></i>
@@ -208,13 +199,13 @@
 
                 </div>
 
-                <button class="carousel-control-prev" style="top:15rem;" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="prev">
+                <button class="carousel-control-prev" style="top:15rem;" type="button"
+                    data-bs-target="#testimonialCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" style="top:15rem; border-radius:50%" type="button" data-bs-target="#testimonialCarousel"
-                    data-bs-slide="next">
+                <button class="carousel-control-next" style="top:15rem; border-radius:50%" type="button"
+                    data-bs-target="#testimonialCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>

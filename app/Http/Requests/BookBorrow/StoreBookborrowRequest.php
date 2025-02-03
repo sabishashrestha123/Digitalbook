@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Slider;
+namespace App\Http\Requests\BookBorrow;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreSliderrRequest extends FormRequest
+class StoreBookborrowRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,9 +22,12 @@ class StoreSliderrRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg',
-            'status' => 'nullable|boolean',
+            'user_id' => 'required|exists:users,id',
+            'book_id' => 'required|exists:books,id',
+            'borrow_date' => 'required|date',
+            'return_date' => 'nullable|date',
+            'late_fee'=>'nullable|numeric',
+            'is_returned'=>'nullable|boolean',
         ];
     }
 }

@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\BookBorrowController;
 use App\Http\Controllers\Admin\BookCategoryController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\BookIssueController;
@@ -22,4 +23,5 @@ Route::resource('semester',SemesterController::class);
 Route::get('semester/{semester}/update-status', [SemesterController::class, 'updateStatus'])->name('semester.updateStatus');
 Route::resource('slider',SliderController::class);
 Route::get('slider/{slider}/update-status', [SliderController::class, 'updateStatus'])->name('slider.updateStatus');
+Route::resource('book-barrow',BookBorrowController::class);
 
