@@ -51,6 +51,9 @@
              <li><a href="{{ route('admin.student-register.index') }}"><i class="fa fa-user blue_color"></i>
                      <span>Manage Student</span></a></li>
              </li>
+             <li><a href="{{ route('admin.feedback.index') }}"><i class="fa fa-comment yellow_color"></i>
+                     <span>Feedback</span></a></li>
+             </li>
 
 
      </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BookBorrowController;
 use App\Http\Controllers\Admin\BookCategoryController;
 use App\Http\Controllers\Admin\BookController;
 use App\Http\Controllers\Admin\BookIssueController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\StudentController;
@@ -30,3 +31,6 @@ Route::get('/book-borrow/{bookBorrow}/late-fee-form', [BookBorrowController::cla
 
 Route::post('/book-borrow/{bookBorrow}/process-late-fee', [BookBorrowController::class, 'processLateFee'])
     ->name('book-borrow.processLateFee');
+
+    Route::resource('feedback',FeedbackController::class);
+    Route::get('feedback/{feedback}/update-status', [FeedbackController::class, 'updateStatus'])->name('feedback.updateStatus');

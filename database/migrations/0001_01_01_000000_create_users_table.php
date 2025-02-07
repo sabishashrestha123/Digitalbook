@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('Symbol_no')->nullable();
             $table->string('email')->unique();
             $table->enum('role', ['admin', 'student', 'teacher']);
-
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('status')->default(true);

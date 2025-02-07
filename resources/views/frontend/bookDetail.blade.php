@@ -22,7 +22,7 @@
                             @foreach ($semester->books as $book)
                             <ul>
                                 <li>
-                                    <a href="">{{ $book->title }}</a>
+                                    <a href="{{ route('showBook',$book) }}">{{ $book->title }}</a>
                                 </li>
 
                             </ul>

@@ -42,170 +42,57 @@
             <h2 class="text-center mt-5 section-title">What Our Users Say</h2>
 
             <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <!-- Carousel Indicators -->
                 <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0"
-                        class="active"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2"></button>
+                    @foreach ($feedbacks as $index => $feedback)
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="{{ $index }}"
+                            class="{{ $index == 0 ? 'active' : '' }}"></button>
+                    @endforeach
                 </div>
 
+                <!-- Carousel Inner (Testimonial Items) -->
                 <div class="carousel-inner">
-                    <!-- First Slide -->
-                    <div class="carousel-item active">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="testimonial-card text-center">
-                                    <div class="avatar-container">
-                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
-                                            alt="Ram Bahadur BC" class="avatar">
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="testimonial-text">
-                                        "This library management system has significantly improved our efficiency. We can
-                                        now easily track books, members, and overdue items."
-                                    </p>
-                                    <div class="user-info">
-                                        <h5>Ram Bahadur BC</h5>
-                                        <p>CSIT, 7th sem</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="testimonial-card text-center">
-                                    <div class="avatar-container">
-                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
-                                            alt="Jane Smith" class="avatar">
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <p class="testimonial-text">
-                                        "The interface is incredibly user-friendly and intuitive. It has streamlined our
-                                        entire library management process."
-                                    </p>
-                                    <div class="user-info">
-                                        <h5>Jane Smith</h5>
-                                        <p>Library Administrator</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="testimonial-card text-center">
-                                    <div class="avatar-container">
-                                        <img src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
-                                            alt="Mike Johnson" class="avatar">
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="testimonial-text">
-                                        "The automated notification system has helped us reduce overdue books by 75%.
-                                        Excellent system!"
-                                    </p>
-                                    <div class="user-info">
-                                        <h5>Mike Johnson</h5>
-                                        <p>Senior Librarian</p>
+                    @foreach ($feedbacks as $index => $feedback)
+                        <div class="carousel-item {{ $index == 0 ? 'active' : '' }}">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="testimonial-card text-center">
+                                        <!-- Avatar -->
+                                        <div class="avatar-container">
+                                            <img src="{{ $feedback->avatar_url ?? 'default-avatar.jpg' }}" alt="{{ $feedback->name }}"
+                                                class="avatar">
+                                        </div>
+
+                                        <!-- Rating -->
+                                        <div class="rating">
+                                            @for ($i = 1; $i <= 5; $i++)
+                                                <i class="fas fa-star {{ $i <= $feedback->rating ? 'text-warning' : 'text-muted' }}"></i>
+                                            @endfor
+                                        </div>
+
+                                        <!-- Testimonial Text -->
+                                        <p class="testimonial-text">
+                                            "{{ $feedback->message }}"
+                                        </p>
+
+                                        <!-- User Info -->
+                                        <div class="user-info">
+                                            <h5>{{ $feedback->name }}</h5>
+                                            <p>{{ $feedback->course ?? 'No Course Information' }}</p> <!-- Display Course or Default Text -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Second Slide -->
-                    <div class="carousel-item">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="testimonial-card text-center">
-                                    <div class="avatar-container">
-                                        <img src="/api/placeholder/100/100" alt="Sarah Wilson" class="avatar">
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="testimonial-text">
-                                        "The reporting features are exceptional. I can generate detailed analytics about
-                                        book circulation with just a few clicks."
-                                    </p>
-                                    <div class="user-info">
-                                        <h5>Sarah Wilson</h5>
-                                        <p>Library Director</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="testimonial-card text-center">
-                                    <div class="avatar-container">
-                                        <img src="/api/placeholder/100/100" alt="David Chen" class="avatar">
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                    <p class="testimonial-text">
-                                        "Managing multiple library branches has become effortless with this system. Great
-                                        work!"
-                                    </p>
-                                    <div class="user-info">
-                                        <h5>David Chen</h5>
-                                        <p>Branch Manager</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="testimonial-card text-center">
-                                    <div class="avatar-container">
-                                        <img src="/api/placeholder/100/100" alt="Emma Thompson" class="avatar">
-                                    </div>
-                                    <div class="rating">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                    <p class="testimonial-text">
-                                        "The mobile app integration makes it easy for students to check book availability
-                                        and reserve items."
-                                    </p>
-                                    <div class="user-info">
-                                        <h5>Emma Thompson</h5>
-                                        <p>Student Representative</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
 
-                <button class="carousel-control-prev" style="top:15rem;" type="button"
-                    data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" style="top:15rem;" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" style="top:15rem; border-radius:50%" type="button"
-                    data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" style="top:15rem; border-radius:50%" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>
                 </button>
