@@ -24,13 +24,33 @@ class FrontendController extends Controller
 
     public function search(Request $request)
     {
-        $query = $request->input('search'); // Get the search input
-        $books = Book::where('title', 'like', "%$query%")
-            ->orWhere('author', 'like', "%$query%")
-            ->orWhere('edition', 'like', "%$query%") // Add more fields if needed
-            ->get();
+        $searchTerm = $request->input('search');
 
-        return view('frontend.book', compact('books'));
+        if (empty($searchTerm)) {
+            return view('frontend.book', ['books' => collect()]);
+        }
+
+        // Get all books
+        $allBooks = Book::all();
+        $searchResults = collect();
+
+        // Linear search implementation
+        foreach ($allBooks as $book) {
+            // Convert both search term and book data to lowercase for case-insensitive search
+            $searchTerm = strtolower($searchTerm);
+            $title = strtolower($book->title);
+            $author = strtolower($book->author);
+            $edition = strtolower($book->edition);
+
+            // Sequential checking of each field
+            if (str_contains($title, $searchTerm) ||
+                str_contains($author, $searchTerm) ||
+                str_contains($edition, $searchTerm)) {
+                $searchResults->push($book);
+            }
+        }
+
+        return view('frontend.book', ['books' => $searchResults]);
     }
     public function studentLogin()
     {
