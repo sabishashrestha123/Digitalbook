@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\contact;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreFeedbackRequest extends FormRequest
+class StoreContactRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,17 +21,10 @@ class StoreFeedbackRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            'name' => ['required', 'string'],
+         return [
+            'full_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email'],
-            'phone' => ['required', 'numeric', 'digits:10'],  // 10 digit phone number
-            'faculty' => ['required', 'string'],
-            'subject' => ['required', 'string'],
             'message' => ['required', 'string'],
-            'rating' => ['required', 'integer', 'between:1,5'],  // 1-5 star rating
-            'status'=>['boolean','nullable'],
-           'image' => ['nullable', 'image', 'max:2048'], // ✅ CORRECT
-
         ];
     }
 }

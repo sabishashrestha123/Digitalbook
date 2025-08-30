@@ -20,7 +20,7 @@
          </div>
      </div>
      <div class="sidebar_blog_2">
-         <h4>Nepalgunj Campus Online Library Management System</h4>
+         <h4>Digital Book Integration System</h4>
          <ul class="list-unstyled components">
              <li class="active">
                  <a href="{{ route('admin.index') }}" aria-expanded="false"><i class="fa fa-dashboard yellow_color"></i>
@@ -47,7 +47,10 @@
                      <span>Book Issue Request</span></a></li>
              </li>
 
-
+ <li>
+                <a href="{{ route('admin.contact.index') }}">
+                    <i class="fa fa-paper-plane red_color"></i> <span>Contact Message</span></a>
+            </li>
              <li><a href="{{ route('admin.student-register.index') }}"><i class="fa fa-user blue_color"></i>
                      <span>Manage Student</span></a></li>
              </li>

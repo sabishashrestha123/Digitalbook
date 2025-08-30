@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\BookController;
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookFrontendController;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +29,13 @@ Route::get('/books/category/{bookCategory}', [FrontendController::class, 'showBy
 
 Route::get('/search', [FrontendController::class, 'search'])->name('book.search');
 Route::get('showBook/{book}', [FrontendController::class,'showBook'])->name('showBook');
+Route::get('/books', [BookFrontendController::class, 'index'])->name('books.index');
+Route::get('/books/{id}', [BookFrontendController::class, 'show'])->name('books.show');
+Route::prefix('frontend')->group(function () {
+    Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
+    Route::get('/authors/{id}', [AuthorController::class, 'show'])->name('authors.show');
 
+});
 
+Route::get('contactus', [FrontendController::class, 'contactus'])->name('contactus');
+Route::post('storeContactMessage', [FrontendController::class, 'storeContactMessage'])->name('storeContactMessage');

@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="login-container">
-    <h3>Teacher Admin Login</h3>
+    <h3>Admin Login</h3>
     <form>
         <div class="mb-3">
             <label for="username" class="form-label">Email</label>

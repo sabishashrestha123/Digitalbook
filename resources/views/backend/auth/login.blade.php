@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Nepalgunj Campus Online Library Management System</title>
+    <title>Digital Book Integration System</title>
     <link rel="icon" href="{{ asset('assets/backend/images/fevicon.png') }}" type="image/x-icon" />
     <link rel="stylesheet" href="{{ asset('assets/backend/css/bootstrap.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/backend/style.css') }}" />

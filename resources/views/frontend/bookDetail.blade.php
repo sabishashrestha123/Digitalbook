@@ -1,38 +1,41 @@
 @extends('frontend.layouts.master')
 @section('content')
 
+<div class="container my-5">
+    <h2 class="text-center">B.Sc. in {{ $bookCategory->name }} - Semester Courses</h2>
 
-
-
-    <div class="container my-5">
-        <h2 class="text-center">B.Sc. in {{ $bookCategory->name }} - Semester Courses</h2>
-        <table class="table table-striped table-bordered">
-            <thead>
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Semester</th>
+                <th>Books</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($bookCategory->semesters as $semester)
                 <tr>
-                    <th>Semester</th>
-                    <th>Books</th>
-                </tr>
-            </thead>
-
-                <tbody>
-                    @foreach ($bookCategory->semesters as $semester)
-                    <tr>
-                        <td>{{ $semester->title }}</td>
-                        <td>
-                            @foreach ($semester->books as $book)
+                    <td>{{ $semester->title }}</td>
+                    <td>
+                        @if ($semester->books->count() > 0)
                             <ul>
-                                <li>
-                                    <a href="{{ route('showBook',$book) }}">{{ $book->title }}</a>
-                                </li>
-
+                                @foreach ($semester->books as $book)
+                                    <li>
+                                        <a href="{{ route('showBook', $book) }}">{{ $book->title }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
-                            @endforeach
-                        </td>
-                    </tr>
-                    @endforeach
+                        @else
+                            <em>No books uploaded for this semester.</em>
+                        @endif
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="2" class="text-center">No semesters available for this category.</td>
+                </tr>
+            @endforelse
+        </tbody>
+    </table>
+</div>
 
-                </tbody>
-
-        </table>
-    </div>
 @endsection

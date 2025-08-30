@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\SemesterController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\StudentUserCcontroller;
 
 Route::get('dashboard', [DashboardController::class, 'index'])->name('index');
@@ -34,3 +35,4 @@ Route::post('/book-borrow/{bookBorrow}/process-late-fee', [BookBorrowController:
 
     Route::resource('feedback',FeedbackController::class);
     Route::get('feedback/{feedback}/update-status', [FeedbackController::class, 'updateStatus'])->name('feedback.updateStatus');
+    Route::resource('contact', ContactMessageController::class);

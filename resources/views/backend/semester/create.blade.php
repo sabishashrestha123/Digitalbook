@@ -16,7 +16,7 @@
             <div class="table_section padding_infor_info">
                 <div class="container">
                     <!-- Form for adding a new category -->
-                    <form action="{{ route('admin.semester.index') }}" method="POST">
+                    <form action="{{ route('admin.semester.store') }}" method="POST">
                         @csrf
                         <div class="row">
                             <div class="col-md-6">

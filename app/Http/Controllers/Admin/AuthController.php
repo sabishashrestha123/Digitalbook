@@ -25,7 +25,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials, $request->has('remember'))) {
 
             if(Auth::user()->role == 'student'){
-                toast('Your are logged in');
+                toast('Logged in successfully.', 'success');
                 return to_route('front.index');
             }
 

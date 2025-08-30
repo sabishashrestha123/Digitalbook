@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\contact\StoreContactRequest;
 use App\Http\Requests\StoreFeedbackRequest;
 use App\Http\Requests\StudentUser\StoreStudentUserRequest;
 use App\Models\Book;
 use App\Models\BookCategory;
+use App\Models\Contact;
 use App\Models\Feedback;
 use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class FrontendController extends Controller
 {
@@ -55,6 +58,7 @@ class FrontendController extends Controller
     public function studentLogin()
     {
         return view('frontend.auth.login');
+
     }
 
     public function studentRegistration()
@@ -67,10 +71,7 @@ class FrontendController extends Controller
         toast('You are  registered Successfully', 'success');
         return to_route('studentLogin');
     }
-    public function adminlogin()
-    {
-        return view('frontend.auth.adminlogin');
-    }
+
     public function csit()
     {
         return view('frontend.csit');
@@ -80,20 +81,21 @@ class FrontendController extends Controller
         return view('frontend.feedback');
     }
     public function feedbackPost(StoreFeedbackRequest $request)
-    {
+{
+    $data = $request->validated();
 
-        Feedback::create($request->validated());
-        toast('Feedback submitted successfully', 'success');
-        return back();
+    // Handle image upload if exists
+    if ($request->hasFile('image')) {
+        $data['image'] = $request->file('image')->store('feedback', 'public');
     }
-    public function librarian()
-    {
-        return view('frontend.auth.librarian');
-    }
-    public function bca()
-    {
-        return view('frontend.bca');
-    }
+
+    Feedback::create($data);
+
+    toast('Feedback submitted successfully', 'success');
+    return back();
+}
+
+
     public function back()
     {
         return view('backend.index');
@@ -108,5 +110,17 @@ class FrontendController extends Controller
     {
         $book->load([ 'bookCategory']);
         return view('frontend.bookShow', compact('book'));
+    }
+
+     public function storeContactMessage(StoreContactRequest $request)
+    {
+        Contact::create($request->validated());
+
+        return redirect()->back()->with('success', 'Message sent successfully!');
+    }
+
+    public function contactus()
+    {
+        return view('frontend.contactus');
     }
 }
