@@ -43,10 +43,6 @@
                  </li>
              @endif
 
-             <li><a href="{{ route('admin.book-borrow.index') }}"><i class="fa fa-paper-plane orange_color"></i>
-                     <span>Book Issue Request</span></a></li>
-             </li>
-
  <li>
                 <a href="{{ route('admin.contact.index') }}">
                     <i class="fa fa-paper-plane red_color"></i> <span>Contact Message</span></a>

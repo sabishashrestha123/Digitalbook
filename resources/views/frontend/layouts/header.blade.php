@@ -21,7 +21,6 @@
                         Books</a></li>
                 <li class="nav-item"><a class="nav-link text-white mx-2" href="{{ route('authors.index') }}">Authors</a>
                 </li>
-                <li class="nav-item"><a class="nav-link text-white mx-2" href="#">My Library</a></li>
 
 
                 <!-- Courses Dropdown -->

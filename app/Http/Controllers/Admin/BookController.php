@@ -41,18 +41,22 @@ class BookController extends Controller
     }
 
 
-    public function show(Book $book)
-    {
+public function show(Book $book)
+{
+    $bookCategories = BookCategory::all();
+    $semesters = Semester::all();
 
-        return view('backend.book.view', compact('bookCategory', 'books'));
-    }
+    return view('backend.book.view', compact('book', 'bookCategories', 'semesters'));
+}
+
 
     public function edit(Book $book)
     {
         // dd($book);
         $bookCategories = BookCategory::latest()->get();
         $semesters = Semester::latest()->get();
-        return view('backend.book.edit', compact('book', 'bookCategories'.'semesters'));
+       return view('backend.book.edit', compact('book', 'bookCategories', 'semesters'));
+
     }
 
     /**
@@ -74,5 +78,6 @@ class BookController extends Controller
         toast('Book deleted successfully!', 'success');
         return redirect()->route('admin.books.index');
     }
+
 
 }

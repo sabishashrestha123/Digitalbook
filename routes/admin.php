@@ -30,9 +30,6 @@ Route::get('book-borrow/{bookBorrow}/update-status', [BookBorrowController::clas
 Route::get('/book-borrow/{bookBorrow}/late-fee-form', [BookBorrowController::class, 'showLateFeeForm'])
     ->name('book-borrow.showLateFeeForm');
 
-Route::post('/book-borrow/{bookBorrow}/process-late-fee', [BookBorrowController::class, 'processLateFee'])
-    ->name('book-borrow.processLateFee');
-
     Route::resource('feedback',FeedbackController::class);
     Route::get('feedback/{feedback}/update-status', [FeedbackController::class, 'updateStatus'])->name('feedback.updateStatus');
     Route::resource('contact', ContactMessageController::class);

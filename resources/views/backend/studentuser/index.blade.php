@@ -43,13 +43,15 @@
                                     <td>
 
 
-                                        <form action="{{ route('admin.student-register.destroy', $user) }}" method="POST"
-                                            style="display:inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"
-                                                onclick="return confirm('Are you sure you want to delete this category?')">Delete</button>
-                                        </form>
+<form action="{{ route('admin.student-register.destroy', $user->id) }}" method="POST" style="display:inline;">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger"
+            onclick="return confirm('Are you sure you want to delete this category?')">
+        Delete
+    </button>
+</form>
+
                                     </td>
                                 </tr>
                             </tbody>

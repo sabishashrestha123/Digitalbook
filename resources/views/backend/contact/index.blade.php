@@ -1,6 +1,5 @@
 @extends('backend.layouts.master')
-
-@section('container')
+@section('content')
 <div class="container-fluid mt-5 px-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">Contact Messages</h2>
